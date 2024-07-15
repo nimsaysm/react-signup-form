@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { Formik, useFormik } from "formik"
-import * as Yup from 'yup';
+import { Formik, Field, Form, ErrorMessage } from "formik"
+import * as Yup from 'yup'
 import "./styles.css"
 
 const SignupForm = () => {
@@ -24,45 +24,21 @@ const SignupForm = () => {
                 }, 400)  
             }}
         >
-            {formik => (
-                <form onSubmit={formik.handleSubmit}>
-                    <label htmlFor="email">Email Address</label>
-                    <input
-                        id="email"
-                        type="email"
-                        {...formik.getFieldProps('email')}
-                    />
-                    {/* will show the errors just if the field was touched */}
-                    {formik.touched.email && formik.errors.email ? (
-                        <div>{formik.errors.email}</div> 
-                        ) : null}
+            <Form>
+                <label htmlFor="email">Email Address</label>
+                <Field name="email" type="email" />
+                <ErrorMessage name="email" />
 
-                    <label htmlFor="firstName">First Name</label>
-                    <input
-                        id="firstName"
-                        name="firstName"
-                        type="text"
-                        {...formik.getFieldProps('firstName')}
-                    />
-                    {formik.touched.firstName && formik.errors.firstName ? (
-                        <div>{formik.errors.firstName}</div>
-                    ) : null}
+                <label htmlFor="firstName">First Name</label>
+                <Field name="firstName" type="text" />
+                <ErrorMessage name="firstName" />
 
-
-                    <label htmlFor="lastName">Last Name</label>
-                    <input
-                        id="lastName"
-                        name="lastName"
-                        type="text"
-                        {...formik.getFieldProps('lastName')}
-                    />
-                    {formik.touched.lastName && formik.errors.lastName ? (
-                        <div>{formik.errors.lastName}</div>
-                    ) : null}
-
-                    <button type="submit">Submit</button>
-                </form>
-            )}
+                <label htmlFor="lastName">Last Name</label>
+                <Field name="lastName" type="text" />
+                <ErrorMessage name="lastName" />
+                
+                <button type="submit">Submit</button>
+            </Form>
         </Formik>
     )
 }
