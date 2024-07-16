@@ -25,17 +25,23 @@ const SignupForm = () => {
             }}
         >
             <Form>
-                <label htmlFor="email">Email Address</label>
-                <Field name="email" type="email" />
-                <ErrorMessage name="email" />
+                <div class="form-field">
+                    <label htmlFor="email">Email Address</label>
+                    <Field name="email" type="email" />
+                    <ErrorMessage name="email" />
+                </div>
 
-                <label htmlFor="firstName">First Name</label>
-                <Field name="firstName" type="text" />
-                <ErrorMessage name="firstName" />
-
-                <label htmlFor="lastName">Last Name</label>
-                <Field name="lastName" type="text" />
-                <ErrorMessage name="lastName" />
+                <div class="form-field">
+                    <label htmlFor="firstName">First Name</label>
+                    <Field name="firstName" type="text" />
+                    <ErrorMessage name="firstName" />
+                </div>
+                
+                <div class="form-field">
+                    <label htmlFor="lastName">Last Name</label>
+                    <Field name="lastName" type="text" />
+                    <ErrorMessage name="lastName" />
+                </div>
                 
                 <button type="submit">Submit</button>
             </Form>
